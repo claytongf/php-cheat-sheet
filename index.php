@@ -634,7 +634,12 @@ if (isset($_GET['ajax']) && isset($_GET['file'])) {
                     '13g_stdlib_output_buffering' => 'output buffering ob ob_start ob_get_clean ob_flush clean end templates buffer',
                     '13h_stdlib_urls_queries' => 'url query http_build_query parse_url parse_str urlencode rawurlencode query string',
                     '13i_stdlib_oop_file' => 'file oop splfileinfo splfileobject metadata stream lines write seek',
-                    '13j_stdlib_json_serializable' => 'json json_encode json_decode jsonserializable serialization format options pretty print'
+                    '13j_stdlib_json_serializable' => 'json json_encode json_decode jsonserializable serialization format options pretty print',
+                    '45_process_control_pcntl' => 'process control pcntl fork posix sigterm sigint signals shmop shared memory daemon background IPC',
+                    '46_system_execution' => 'system execution command shell_exec proc_open pipes passthru escapeshellarg escapeshellcmd subprocess',
+                    '47_advanced_spl_iterators' => 'iterator spl arrayiterator limititerator callbackfilteriterator multipleiterator iteratoraggregate collection',
+                    '48_production_optimization' => 'production optimization opcache jit preloading fpm php-fpm tuning performance pm max_children config',
+                    '49_advanced_validation_filters' => 'validation filter sanitization filter_var filter_input filter_var_array email url ip validation flags'
                 ];
 
                 $categories = [
@@ -663,7 +668,8 @@ if (isset($_GET['ajax']) && isset($_GET['file'])) {
                     '33_caching_apcu_redis', '34_sockets_networking', '35_jwt_authentication',
                     '36_benchmarking_performance', '37_advanced_cli', '41_queues_workers',
                     '42_weak_references', '44_event_loop', '13f_stdlib_spl_datastructures',
-                    '13g_stdlib_output_buffering'
+                    '13g_stdlib_output_buffering', '45_process_control_pcntl', '46_system_execution',
+                    '48_production_optimization'
                 ];
 
                 foreach ($examples as $file) {

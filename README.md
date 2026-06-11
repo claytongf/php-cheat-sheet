@@ -110,7 +110,12 @@ php-cheat-sheet/
     ├── 41_queues_workers.php
     ├── 42_weak_references.php
     ├── 43_dns_network.php
-    └── 44_event_loop.php
+    ├── 44_event_loop.php
+    ├── 45_process_control_pcntl.php
+    ├── 46_system_execution.php
+    ├── 47_advanced_spl_iterators.php
+    ├── 48_production_optimization.php
+    └── 49_advanced_validation_filters.php
 ```
 
 ---
@@ -420,6 +425,32 @@ php-cheat-sheet/
 - Non-blocking execution event loop concept in single-threaded setups.
 - Building a custom Event Loop class supporting one-shot and periodic intervals.
 - High-performance asynchronous engines summary (ReactPHP, Swoole, RoadRunner).
+
+### [45. Process Control & Shared Memory (IPC)](https://www.github.com/claytongf/php-cheat-sheet/examples/45_process_control_pcntl.php)
+- Multiprocess management: spawning processes (`pcntl_fork`), tracking process IDs (`posix_getpid`), and reaping processes (`pcntl_wait`).
+- Signal trapping: handling standard OS interrupt signals (`pcntl_signal` for `SIGTERM` and `SIGINT`).
+- Shared memory IPC: read, write, and delete segments using `shmop` functions.
+
+### [46. System Command Execution & Subprocesses](https://www.github.com/claytongf/php-cheat-sheet/examples/46_system_execution.php)
+- Command wrappers: stdout/stderr execution captures (`exec`, `system`, `shell_exec`, `passthru`).
+- Subprocess descriptors: bidirectionally writing and reading data from spawned subprocesses via pipes using `proc_open`.
+- Security: escaping arguments and shell commands (`escapeshellarg`, `escapeshellcmd`) to prevent execution injections.
+
+### [47. Advanced SPL Iterators](https://www.github.com/claytongf/php-cheat-sheet/examples/47_advanced_spl_iterators.php)
+- Slicing and pagination: offloading manual pagination loops using `LimitIterator`.
+- Custom filtering: executing closure validations on iterator traversals with `CallbackFilterIterator`.
+- Zipping datasets: traversing multiple iterators simultaneously using `MultipleIterator`.
+- Traversable classes: implementing custom loops using `IteratorAggregate`.
+
+### [48. Production Environment Optimization](https://www.github.com/claytongf/php-cheat-sheet/examples/48_production_optimization.php)
+- OPcache analytics: monitoring performance metrics (`opcache_get_status`) and configuring fast startups via Preloading.
+- JIT compilation: tracing hot paths and adjusting buffer sizes (`opcache.jit`).
+- PHP-FPM process managers: tuning dynamic vs static pools (`pm.max_children`, spare configurations).
+
+### [49. Advanced Data Validation and Sanitization Filters](https://www.github.com/claytongf/php-cheat-sheet/examples/49_advanced_validation_filters.php)
+- Validate schemas: filtering emails, URLs, and checking public vs private IP coordinates (`filter_var`).
+- Sanitization: clearing string tags, signs, and parsing fraction numbers safely.
+- Bulk validations: verifying whole request data lists in a single call (`filter_var_array`).
 
 ---
 
