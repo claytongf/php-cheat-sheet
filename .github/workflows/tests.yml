@@ -13,13 +13,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['8.1', '8.2', '8.3', '8.4', '8.5']
+        php-version: ['8.2', '8.3', '8.4', '8.5']
 
     name: PHP ${{ matrix.php-version }} Build & Verification
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
+
+    - name: Set up Node.js (LTS)
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
 
     - name: Setup PHP Environment
       uses: shivammathur/setup-php@v2
