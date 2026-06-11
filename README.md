@@ -75,6 +75,11 @@ php-cheat-sheet/
     ├── 13c_stdlib_math.php
     ├── 13d_stdlib_datetime.php
     ├── 13e_stdlib_misc.php
+    ├── 13f_stdlib_spl_datastructures.php
+    ├── 13g_stdlib_output_buffering.php
+    ├── 13h_stdlib_urls_queries.php
+    ├── 13i_stdlib_oop_file.php
+    ├── 13j_stdlib_json_serializable.php
     ├── 14_api_creation.php
     ├── 15_unit_testing.php
     ├── 16_security.php
@@ -178,7 +183,7 @@ php-cheat-sheet/
 - Fetching single or multiple rows.
 - Atomic SQL execution via database Transactions (`beginTransaction`, `commit`, `rollBack`).
 
-### [11a. Standard Library - String Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/11a_stdlib_strings.php)
+### [13a. Standard Library - String Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/13a_stdlib_strings.php)
 - Metadata & Splitting: `strlen()`, `str_word_count()`, `str_split()`, `str_repeat()`.
 - Case Shifting: `strtoupper()`, `strtolower()`, `ucfirst()`, `lcfirst()`, `ucwords()`.
 - Trimming & Padding: `trim()`, `ltrim()`, `rtrim()`, `str_pad()`.
@@ -186,7 +191,7 @@ php-cheat-sheet/
 - Editing & Replacing: `str_replace()`, `str_ireplace()`, `str_shuffle()`, `strrev()`.
 - HTML & Formatting: `strip_tags()`, `nl2br()`, `wordwrap()`.
 
-### [11b. Standard Library - Array Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/11b_stdlib_arrays.php)
+### [13b. Standard Library - Array Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/13b_stdlib_arrays.php)
 - Sizing & Key Checking: `count()`, `is_array()`, `in_array()`, `array_key_exists()`, `array_keys()`, `array_values()`.
 - Stack & Queue operations: `array_push()`, `array_pop()`, `array_shift()`, `array_unshift()`.
 - Slice, Combine & Merges: `array_merge()`, `array_combine()`, `array_slice()`, `array_splice()`, `array_chunk()`, `array_unique()`, `array_reverse()`, `array_flip()`.
@@ -194,25 +199,49 @@ php-cheat-sheet/
 - Set actions: `array_diff()`, `array_intersect()`.
 - Sort variations: `sort()`, `rsort()`, `asort()`, `arsort()`, `ksort()`, `krsort()`, `usort()`.
 
-### [11c. Standard Library - Math & Numeric Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/11c_stdlib_math.php)
+### [13c. Standard Library - Math & Numeric Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/13c_stdlib_math.php)
 - Rounding: `abs()`, `ceil()`, `floor()`, `round()`.
 - Min/Max, Square Root & Powers: `min()`, `max()`, `pow()`, `sqrt()`.
 - Base Converter: `decbin()`, `bindec()`, `dechex()`, `hexdec()`.
 - Float Checks: `fmod()`, `is_nan()`, `is_infinite()`.
 - Cryptographic & Pseudo-randomness: `rand()`, `mt_rand()`, `random_int()`, `random_bytes()`.
 
-### [11d. Standard Library - Date & Time Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/11d_stdlib_datetime.php)
+### [13d. Standard Library - Date & Time Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/13d_stdlib_datetime.php)
 - Unix timestamps & parsing: `time()`, `microtime()`, `strtotime()`, `mktime()`.
 - Formatting & Gregorian Check: `date()`, `gmdate()`, `getdate()`, `checkdate()`.
 - Timezone management: `date_default_timezone_get()`, `date_default_timezone_set()`.
 - Modern OOP Date Time API: `DateTime`, `DateTimeImmutable`, `DateTimeZone`, `DateInterval`, `DatePeriod`.
 
-### [11e. Standard Library - Miscellaneous Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/11e_stdlib_misc.php)
+### [13e. Standard Library - Miscellaneous Functions](https://www.github.com/claytongf/php-cheat-sheet/examples/13e_stdlib_misc.php)
 - Variable checking: `isset()`, `empty()`, `unset()`, `gettype()`.
 - Type checking: `is_null()`, `is_scalar()`, `is_numeric()`, `is_string()`, `is_int()`, `is_callable()`.
 - Process & System: `uniqid()`, `usleep()`.
 - Dynamic checks: `function_exists()`, `class_exists()`, `extension_loaded()`, `defined()`.
 - INI settings: `ini_get()`, `ini_set()`.
+
+### [13f. Standard Library - SPL Data Structures](https://www.github.com/claytongf/php-cheat-sheet/examples/13f_stdlib_spl_datastructures.php)
+- LIFO stack structures (`SplStack`) and FIFO queue structures (`SplQueue`).
+- Memory-efficient fixed-size arrays (`SplFixedArray`).
+- Sorting values via priority values using `SplPriorityQueue`.
+- Set mapping of objects to metadata / unique object store (`SplObjectStorage`).
+
+### [13g. Standard Library - Output Buffering](https://www.github.com/claytongf/php-cheat-sheet/examples/13g_stdlib_output_buffering.php)
+- Controlling PHP buffer outputs: `ob_start()`, `ob_get_contents()`, `ob_clean()`, `ob_get_clean()`, and `ob_end_clean()`.
+- Releasing and flushing buffers: `ob_flush()`, `flush()`, and nested buffering strategies.
+- Practical templating engine concept using dynamic capture.
+
+### [13h. Standard Library - URLs & Query Strings](https://www.github.com/claytongf/php-cheat-sheet/examples/13h_stdlib_urls_queries.php)
+- Query string generation: `http_build_query()`, URL parsing: `parse_url()`, and query string array decoding: `parse_str()`.
+- URL-safe string encodings: `urlencode()`, `urldecode()`, and RFC 3986 compliant raw conversions `rawurlencode()` and `rawurldecode()`.
+
+### [13i. Standard Library - OOP File Handling](https://www.github.com/claytongf/php-cheat-sheet/examples/13i_stdlib_oop_file.php)
+- Object-oriented metadata retrieval: `SplFileInfo` (file size, paths, write checks).
+- Seekable file stream reads and writes: `SplFileObject` line-by-line iterations, seeking positions (`seek`), and writing CSV lines.
+
+### [13j. Standard Library - JSON & Serialization](https://www.github.com/claytongf/php-cheat-sheet/examples/13j_stdlib_json_serializable.php)
+- Advanced formatting flags in `json_encode()` (e.g. `JSON_PRETTY_PRINT`, `JSON_UNESCAPED_SLASHES`).
+- Exception throw-on-error behavior: `JSON_THROW_ON_ERROR` and `JsonException` handling.
+- Custom object serialization schemas via `JsonSerializable` interface implementation.
 
 ### [12. Advanced PDO (PHP Data Objects)](https://www.github.com/claytongf/php-cheat-sheet/examples/12_pdo_advanced.php)
 - Complex relational queries with PDO: `INNER JOIN`, `LEFT JOIN`, aggregation (`COUNT`, `SUM`), grouping (`GROUP BY`), and subqueries.

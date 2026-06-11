@@ -629,7 +629,12 @@ if (isset($_GET['ajax']) && isset($_GET['file'])) {
                     '41_queues_workers' => 'queues queue worker jobs background database locking select for update rabbitmq beanstalkd',
                     '42_weak_references' => 'weakreferences weakreference weakmap garbage collection object metadata caching gc memory',
                     '43_dns_network' => 'dns network utility checkdnsrr mx records gethostbyname ip2long long2ip resolution ip address',
-                    '44_event_loop' => 'eventloop event loop reactive programming reactphp swoole async non-blocking stream timer'
+                    '44_event_loop' => 'eventloop event loop reactive programming reactphp swoole async non-blocking stream timer',
+                    '13f_stdlib_spl_datastructures' => 'spl stack queue fixedarray priorityqueue objectstorage data structures algorithms memory heap',
+                    '13g_stdlib_output_buffering' => 'output buffering ob ob_start ob_get_clean ob_flush clean end templates buffer',
+                    '13h_stdlib_urls_queries' => 'url query http_build_query parse_url parse_str urlencode rawurlencode query string',
+                    '13i_stdlib_oop_file' => 'file oop splfileinfo splfileobject metadata stream lines write seek',
+                    '13j_stdlib_json_serializable' => 'json json_encode json_decode jsonserializable serialization format options pretty print'
                 ];
 
                 $categories = [
@@ -657,7 +662,8 @@ if (isset($_GET['ajax']) && isset($_GET['file'])) {
                     '26_generators', '31_localization_intl', '32_image_processing_gd',
                     '33_caching_apcu_redis', '34_sockets_networking', '35_jwt_authentication',
                     '36_benchmarking_performance', '37_advanced_cli', '41_queues_workers',
-                    '42_weak_references', '44_event_loop'
+                    '42_weak_references', '44_event_loop', '13f_stdlib_spl_datastructures',
+                    '13g_stdlib_output_buffering'
                 ];
 
                 foreach ($examples as $file) {
