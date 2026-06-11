@@ -160,3 +160,8 @@ foreach ($methods as $method) {
 echo "\n----------------------------------------\n";
 echo 'Tests Run: ' . ($passed + $failed) . " | Passed: $passed | Failed: $failed\n";
 echo 'Assertions Made: ' . MockAssert::$assertionsCount . "\n";
+
+if ($failed > 0) {
+    exit(1);
+}
+exit(0);

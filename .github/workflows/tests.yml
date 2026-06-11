@@ -1,0 +1,38 @@
+name: PHP Cheat Sheet CI Verification
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: ['8.1', '8.2', '8.3', '8.4', '8.5']
+
+    name: PHP ${{ matrix.php-version }} Build & Verification
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP Environment
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: sqlite3, pcntl, shmop, apcu, redis, gd
+        coverage: none
+
+    - name: Syntax Lint Check (php -l)
+      run: php -l index.php examples/*.php tests/*.php
+
+    - name: Execute Mock Unit Tests (15_unit_testing.php)
+      run: php examples/15_unit_testing.php
+
+    - name: Run Full Execution Verification (run_all.php)
+      run: php tests/run_all.php

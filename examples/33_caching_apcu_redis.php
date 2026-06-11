@@ -98,13 +98,41 @@ if (!class_exists('Redis')) {
             return $item['val'];
         }
     }
+    $redis = new Redis();
+    $redis->connect('127.0.0.1', 6379);
 } else {
-    echo "PECL Redis extension is active. Connecting to simulated client...\n";
+    echo "PECL Redis extension is active. Attempting connection to Redis server...\n";
+    $redis = new Redis();
+    try {
+        // Suppress warnings and try to connect with a short 0.5s timeout
+        $connected = @$redis->connect('127.0.0.1', 6379, 0.5);
+        if (!$connected) {
+            throw new Exception("Connection refused");
+        }
+        echo "Connected successfully to Redis server.\n";
+    } catch (Throwable $e) {
+        echo "Connection to Redis server failed: " . $e->getMessage() . "\n";
+        echo "Falling back to simulated Redis client (Simulation Mode).\n";
+        
+        class SimulatedRedis {
+            private $storage = [];
+            public function setex($key, $ttl, $value) {
+                $this->storage[$key] = ['val' => $value, 'exp' => time() + $ttl];
+                return true;
+            }
+            public function get($key) {
+                if (!isset($this->storage[$key])) return false;
+                $item = $this->storage[$key];
+                if (time() > $item['exp']) {
+                    unset($this->storage[$key]);
+                    return false;
+                }
+                return $item['val'];
+            }
+        }
+        $redis = new SimulatedRedis();
+    }
 }
-
-// Redis typical integration pattern
-$redis = new Redis();
-$redis->connect('127.0.0.1', 6379);
 
 // Caching query results as serialized JSON
 $userSessionKey = 'session:user_419';

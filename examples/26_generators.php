@@ -104,8 +104,8 @@ function printerGenerator(): Generator {
 }
 
 $printer = printerGenerator();
-// Start the generator (run up to the first yield)
-$printer->start();
+// Start the generator (run up to the first yield, using current() or send(null))
+$printer->current();
 
 // Send values
 $printer->send("hello");

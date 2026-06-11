@@ -79,7 +79,7 @@ function reserveJob(PDO $db, string $queue): ?array {
         
         $fiveMinutesAgo = time() - 300; // 5 min timeout
         $stmt->execute(['queue' => $queue, 'timeout' => $fiveMinutesAgo]);
-        $job = $stmt->fetch(PDO::ATTR_ASSOC);
+        $job = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if (!$job) {
             $db->commit();
