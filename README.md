@@ -1,5 +1,7 @@
 # Interactive PHP Cheat Sheet & Playground 🐘
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=flat-square&logo=buy-me-a-coffee)](https://buymeacoffee.com/botaficha)
+
 Welcome to the **Interactive PHP Cheat Sheet and Playground**! This repository is designed to be a comprehensive, easy-to-use learning resource and reference guide for core PHP concepts (from basic syntax to object-oriented programming and database connectivity).
 
 It features a **modern, premium web-based dashboard** where you can read, analyze, and instantly execute each cheat sheet script right inside your browser.
@@ -460,3 +462,11 @@ php-cheat-sheet/
 - **Glassmorphism Theme**: Clean, responsive layout designed with neon accents, dark gradients, and smooth transition animations.
 - **Real-Time Execution**: Click **"Run Code"** to execute scripts locally and capture their `stdout` inside a simulated terminal.
 - **Isolated Sandbox**: Code execution runs inside isolated closures to prevent variable leakage between dashboard logic and example code.
+
+---
+
+## 💖 Support the Project / Apoie o Projeto
+
+If this interactive cheat sheet helped you, consider supporting the project:
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge&logo=buy-me-a-coffee)](https://buymeacoffee.com/botaficha)
